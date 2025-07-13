@@ -1,0 +1,18 @@
+/* Contact Section */
+.contact-section {
+  background-color: var(--card-background);
+  text-align: center;
+}
+
+.contact-subtitle {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: var(--secondary-color);
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}

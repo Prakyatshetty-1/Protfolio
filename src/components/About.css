@@ -1,0 +1,56 @@
+/* About Section */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.education h3,
+.experience h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.timeline-item {
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 2px solid #ddd;
+}
+
+.timeline-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.timeline-item p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row;
+  }
+
+  .about-text {
+    flex: 1;
+  }
+
+  .about-details {
+    flex: 1;
+  }
+}

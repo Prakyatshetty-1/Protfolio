@@ -1,4 +1,5 @@
 import "./Sechero.css"
+import TypingText from "../reactbits/TypingText"
 import p from "../images/Profile.jpeg"
 
 function Sechero() {
@@ -7,7 +8,12 @@ function Sechero() {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <h2 className="hero-title">Hi, I'm Prakyat Shetty</h2>
+            <h2 className="hero-title">
+              <TypingText
+                text="Hii,I am Prakyat Shetty"
+                speed={125}
+              />
+            </h2>
             <p className="hero-subtitle">
               I am a passionate fullstack developer specializing in creating beautiful, functional, and user friendly
               websites.

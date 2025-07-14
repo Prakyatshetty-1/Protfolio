@@ -1,10 +1,21 @@
 import "./About.css"
+import ScrollFloat from "../reactbits/ScrollFloat"
 
 function About() {
   return (
     <section id="about" className="section">
       <div className="container">
-        <h2 className="section-title">About Me</h2>
+
+          <ScrollFloat
+            animationDuration={1}
+            ease='back.inOut(2)'
+            scrollStart='center bottom+=20%'
+            scrollEnd='bottom bottom-=60%'
+            stagger={0.03}
+            textClassName="section-title"
+          >
+            About Me
+          </ScrollFloat>
         <div className="about-content">
           <div className="about-text">
             <p>

@@ -14,6 +14,12 @@
   flex-direction: column;
   gap: 30px;
 }
+.section-title{
+  font-size: 2rem;         /* default h2 size in most browsers */
+  font-weight: 600;        /* typical h2 weight */
+  line-height: 1.2;        /* for proper spacing */
+}
+
 
 .education h3,
 .experience h3 {

@@ -12,6 +12,11 @@ function Skills() {
           <SkillCard title="React" level="Intermediate" />
           <SkillCard title="Java" level="Advanced" />
           <SkillCard title="C/C++" level="Advanced" />
+          <SkillCard title="HTML/CSS" level="Advanced" />
+          <SkillCard title="JavaScript" level="Intermediate" />
+          <SkillCard title="React" level="Intermediate" />
+          <SkillCard title="Java" level="Advanced" />
+          <SkillCard title="C/C++" level="Advanced" />
         </div>
       </div>
     </section>

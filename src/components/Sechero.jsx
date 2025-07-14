@@ -19,8 +19,8 @@ function Sechero() {
 
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={1600}>
               <p className="hero-subtitle">
-                I am a passionate fullstack developer specializing in creating beautiful, functional, and user friendly
-                websites.
+                I am a fullstack developer specializing in creating beautiful, functional, and user friendly
+                websites,also with the great knowledge of backend.
               </p>
             </FadeContent>
 

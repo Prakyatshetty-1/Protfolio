@@ -1,0 +1,23 @@
+.scroll-float {
+  overflow: hidden;
+}
+
+.scroll-float-text {
+  display: inline-block;
+  font-size: clamp(1.6rem, 8vw, 10rem);
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.char {
+  display: inline-block;
+}
+.section-title{
+  font-size: 2rem;         /* like h2 */
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;      /* centers the text */
+  width: 100%;             /* optional: ensures full width */
+  margin: 2 auto; 
+}

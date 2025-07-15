@@ -107,7 +107,7 @@
 
 /* Light Mode Toggle */
 .theme-toggle.light {
-  background: linear-gradient(135deg, #d4e3ff, #b9d3ff, #00234c);
+  background: linear-gradient(135deg, #d4e3ff, #b9d3ff, #9cb9da);
   color: #333;
 }
 

@@ -1,18 +1,95 @@
-import "./About.css"
+"use client"
+
+import { useRef, useEffect, useState } from "react"
 import ScrollFloat from "../reactbits/ScrollFloat"
+import "./About.css" // Import the CSS file
 
-function About() {
+export default function About() {
+  const sectionRef = useRef(null)
+  const educationRef = useRef(null)
+  const experienceRef = useRef(null)
+
+  const [isSectionVisible, setIsSectionVisible] = useState(false)
+  const [isEducationVisible, setIsEducationVisible] = useState(false)
+  const [isExperienceVisible, setIsExperienceVisible] = useState(false)
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null, // viewport
+      rootMargin: "0px",
+      threshold: 0.2, // Trigger when 20% of the element is visible
+    }
+
+    // Observer for the main About section
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsSectionVisible(true)
+          sectionObserver.unobserve(entry.target) // Stop observing once visible
+        }
+      })
+    }, observerOptions)
+
+    // Observer for the Education div
+    const educationObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsEducationVisible(true)
+          educationObserver.unobserve(entry.target)
+        }
+      })
+    }, observerOptions)
+
+    // Observer for the Experience div
+    const experienceObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsExperienceVisible(true)
+          experienceObserver.unobserve(entry.target)
+        }
+      })
+    }, observerOptions)
+
+    // Start observing elements if they exist
+    if (sectionRef.current) {
+      sectionObserver.observe(sectionRef.current)
+    }
+    if (educationRef.current) {
+      educationObserver.observe(educationRef.current)
+    }
+    if (experienceRef.current) {
+      experienceObserver.observe(experienceRef.current)
+    }
+
+    // Cleanup observers on component unmount
+    return () => {
+      if (sectionRef.current) {
+        sectionObserver.unobserve(sectionRef.current)
+      }
+      if (educationRef.current) {
+        educationObserver.unobserve(educationRef.current)
+      }
+      if (experienceRef.current) {
+        experienceObserver.unobserve(experienceRef.current)
+      }
+    }
+  }, []) // Empty dependency array means this effect runs once on mount
+
   return (
-    <section id="about" className="section">
-      <div className="container">
-
+    <section
+      id="about"
+      ref={sectionRef}
+      // Apply base class and then conditionally add 'is-visible'
+      className={`section py-16 fade-in-section ${isSectionVisible ? "is-visible" : ""}`}
+    >
+      <div className="container mx-auto px-4">
           <ScrollFloat
             animationDuration={1}
             ease='back.inOut(2)'
-            scrollStart='center bottom+=20%'
-            scrollEnd='bottom bottom-=60%'
-            stagger={0.03}
+            scrollStart='center bottom+=10%'
+            scrollEnd='bottom bottom-=30%'
             textClassName="section-title"
+            stagger={0.03}
           >
             About Me
           </ScrollFloat>
@@ -35,7 +112,7 @@ function About() {
             </p>
           </div>
           <div className="about-details">
-            <div className="education">
+            <div ref={educationRef} className={`education slide-in-right ${isEducationVisible ? "is-visible" : ""}`}>
               <h3>Education</h3>
               <div className="timeline-item">
                 <h4>Bachelor of Science in Computer Science</h4>
@@ -43,17 +120,16 @@ function About() {
               </div>
             </div>
 
-            <div className="experience">
+            <div ref={experienceRef} className={`experience slide-in-right ${isExperienceVisible ? "is-visible" : ""}`}>
               <h3>Experience</h3>
               <div className="timeline-item">
-                <h4> Developer</h4>
-                <p>Blah Blah Blah</p>
-                <p>More Blah Blah Blah</p>
-              </div>
-              <div className="timeline-item">
-                <h4>FullStack Developer</h4>
-                <p>Blah Blah Blah</p>
-                <p>More Blah Blah Blah</p>
+                <h4>JOINT DEV HEAD, CODERS CLUB</h4>
+                <p>
+                  Leading and mentoring a team of developers to build web <br />
+                  applications and tools for club events and initiatives. <br />
+                  Leading and mentoring a team of developers to build web <br />
+                  applications and tools for club events and initiatives. <br />
+                </p>
               </div>
             </div>
           </div>
@@ -62,4 +138,3 @@ function About() {
     </section>
   )
 }
-export default About

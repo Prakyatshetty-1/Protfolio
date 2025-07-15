@@ -14,12 +14,11 @@
   flex-direction: column;
   gap: 30px;
 }
-.section-title{
-  font-size: 2rem;         /* default h2 size in most browsers */
-  font-weight: 600;        /* typical h2 weight */
-  line-height: 1.2;        /* for proper spacing */
+.section-title {
+  font-size: 2rem; /* default h2 size in most browsers */
+  font-weight: 600; /* typical h2 weight */
+  line-height: 1.2; /* for proper spacing */
 }
-
 
 .education h3,
 .experience h3 {
@@ -59,4 +58,30 @@
   .about-details {
     flex: 1;
   }
+}
+
+/* New CSS for Animations */
+
+/* Fade In Animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide In From Right Animation */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }

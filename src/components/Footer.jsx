@@ -14,7 +14,7 @@ function Footer() {
           >
             GitHub
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">
+          <a href="https://www.linkedin.com/in/prakyat-shetty-50875b365/" target="_blank" rel="noopener noreferrer" className="footer-link">
             LinkedIn
           </a>
           <a

@@ -1,12 +1,22 @@
 import "./Project.css"
 import Dashboard from "../images/miniProj.png"
 import ideathon from "../images/ideathon.jpeg"
+import ScrollFloat from "../reactbits/ScrollFloat"
 
 function Project() {
   return (
     <section id="projects" className="section">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <ScrollFloat
+          animationDuration={1}
+          ease='back.inOut(2)'
+          scrollStart='center bottom+=10%'
+          scrollEnd='bottom bottom-=30%'
+          textClassName="section-title"
+          stagger={0.03}
+        >
+          Featured Projects
+        </ScrollFloat>
         <div className="projects-grid">
           <ProjectCard
             title="Crops Predection Web"

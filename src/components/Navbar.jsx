@@ -34,7 +34,7 @@ function Navbar(props) {
             >
               GitHub
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.linkedin.com/in/prakyat-shetty-50875b365/" target="_blank" rel="noopener noreferrer" className="social-link">
               LinkedIn
             </a>
             <div className="theme-toggle-container">

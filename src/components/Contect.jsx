@@ -11,7 +11,7 @@ function Content() {
           <a href="mailto:prakyatshetty5@gmail.com" className="button primary-button">
             prakyatshetty5@gmail.com
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="button secondary-button">
+          <a href="https://www.linkedin.com/in/prakyat-shetty-50875b365/" target="_blank" rel="noopener noreferrer" className="button secondary-button">
             LinkedIn
           </a>
         </div>

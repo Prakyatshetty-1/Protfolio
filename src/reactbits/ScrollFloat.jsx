@@ -1,80 +1,59 @@
-import { useEffect, useMemo, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+"use client"
 
-import './ScrollFloat.css';
+import { useRef, useEffect, useState } from "react"
 
-gsap.registerPlugin(ScrollTrigger);
+/**
+ * @typedef {object} ScrollFloatProps
+ * @property {number} [animationDuration] - Duration of the animation in seconds.
+ * @property {string} [ease] - Easing function (not directly used by pure CSS, but kept for prop consistency).
+ * @property {string} [scrollStart] - Scroll start point (not directly used by IntersectionObserver, but kept for prop consistency).
+ * @property {string} [scrollEnd] - Scroll end point (not directly used by IntersectionObserver, but kept for prop consistency).
+ * @property {string} [textClassName] - Class name for the text element.
+ * @property {number} [stagger] - Stagger delay (not directly used for single element, but kept for prop consistency).
+ * @property {React.ReactNode} children - The content to be animated.
+ */
 
-const ScrollFloat = ({
-  children,
-  scrollContainerRef,
-  containerClassName = "",
-  textClassName = "",
-  animationDuration = 1,
-  ease = 'back.inOut(2)',
-  scrollStart = 'center bottom+=50%',
-  scrollEnd = 'bottom bottom-=40%',
-  stagger = 0.03
-}) => {
-  const containerRef = useRef(null);
-
-  const splitText = useMemo(() => {
-    const text = typeof children === 'string' ? children : '';
-    return text.split("").map((char, index) => (
-      <span className="char" key={index}>
-        {char === " " ? "\u00A0" : char}
-      </span>
-    ));
-  }, [children]);
+/**
+ * ScrollFloat component applies a fade-in-up animation when it enters the viewport.
+ * @param {ScrollFloatProps} props
+ */
+export default function ScrollFloat({ animationDuration = 0.8, textClassName, children }) {
+  const ref = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const scroller =
-      scrollContainerRef && scrollContainerRef.current
-        ? scrollContainerRef.current
-        : window;
-
-    const charElements = el.querySelectorAll('.char');
-
-    gsap.fromTo(
-      charElements,
-      {
-        willChange: 'opacity, transform',
-        opacity: 0,
-        yPercent: 120,
-        scaleY: 2.3,
-        scaleX: 0.7,
-        transformOrigin: '50% 0%'
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(entry.target) // Stop observing once visible
+        }
       },
       {
-        duration: animationDuration,
-        ease: ease,
-        opacity: 1,
-        yPercent: 0,
-        scaleY: 1,
-        scaleX: 1,
-        stagger: stagger,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: scrollStart,
-          end: scrollEnd,
-          scrub: true
-        }
+        root: null, // viewport
+        rootMargin: "0px",
+        threshold: 0.5, // Trigger when 50% of the element is visible
+      },
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current)
       }
-    );
-  }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger]);
+    }
+  }, [])
 
   return (
-    <h2 ref={containerRef} className={`scroll-float ${containerClassName}`}>
-      <span className={`scroll-float-text ${textClassName}`}>
-        {splitText}
-      </span>
-    </h2>
-  );
-};
-
-export default ScrollFloat;
+    <div
+      ref={ref}
+      className={`${textClassName || ""} ${isVisible ? "animate-in" : ""}`}
+      style={{ transitionDuration: `${animationDuration}s` }}
+    >
+      {children}
+    </div>
+  )
+}

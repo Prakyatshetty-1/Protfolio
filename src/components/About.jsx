@@ -2,9 +2,9 @@
 
 import { useRef, useEffect, useState } from "react"
 import ScrollFloat from "../reactbits/ScrollFloat"
-import "./About.css" // Import the CSS file
+import './About.css'
 
-export default function About() {
+export default function About5() {
   const sectionRef = useRef(null)
   const educationRef = useRef(null)
   const experienceRef = useRef(null)
@@ -80,21 +80,21 @@ export default function About() {
       id="about"
       ref={sectionRef}
       // Apply base class and then conditionally add 'is-visible'
-      className={`section py-16 fade-in-section ${isSectionVisible ? "is-visible" : ""}`}
+      className={`section5 fade-in-section5 ${isSectionVisible ? "is-visible" : ""}`}
     >
-      <div className="container mx-auto px-4">
-          <ScrollFloat
-            animationDuration={1}
-            ease='back.inOut(2)'
-            scrollStart='center bottom+=10%'
-            scrollEnd='bottom bottom-=30%'
-            textClassName="section-title"
-            stagger={0.03}
-          >
-            About Me
-          </ScrollFloat>
-        <div className="about-content">
-          <div className="about-text">
+      <div className="container5">
+        <ScrollFloat
+          animationDuration={1}
+          ease="back.inOut(2)"
+          scrollStart="center bottom+=10%"
+          scrollEnd="bottom bottom-=30%"
+          textClassName="section-title5"
+          stagger={0.03}
+        >
+          About Me
+        </ScrollFloat>
+        <div className="about-content5">
+          <div className="about-text5">
             <p>
               I'm a full-stack developer with experience in building dynamic and user-friendly web applications. My
               expertise lies in React and modern frontend technologies, allowing me to create seamless and interactive
@@ -111,18 +111,21 @@ export default function About() {
               high-quality work.
             </p>
           </div>
-          <div className="about-details">
-            <div ref={educationRef} className={`education slide-in-right ${isEducationVisible ? "is-visible" : ""}`}>
+          <div className="about-details5">
+            <div ref={educationRef} className={`education5 slide-in-right5 ${isEducationVisible ? "is-visible" : ""}`}>
               <h3>Education</h3>
-              <div className="timeline-item">
+              <div className="timeline-item5">
                 <h4>Bachelor of Science in Computer Science</h4>
                 <p>A.P Shah Institute Of Technology</p>
               </div>
             </div>
 
-            <div ref={experienceRef} className={`experience slide-in-right ${isExperienceVisible ? "is-visible" : ""}`}>
+            <div
+              ref={experienceRef}
+              className={`experience5 slide-in-right5 ${isExperienceVisible ? "is-visible" : ""}`}
+            >
               <h3>Experience</h3>
-              <div className="timeline-item">
+              <div className="timeline-item5">
                 <h4>JOINT DEV HEAD, CODERS CLUB</h4>
                 <p>
                   Leading and mentoring a team of developers to build web <br />

@@ -1,10 +1,106 @@
-/* Skills Section */
+
+
+/* body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+} */
+
+/* Section Styling */
+.section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
 .skills-section {
   background-color: var(--card-background);
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: var(--section-title-color);
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(50px); /* Start from below for animation */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-title.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skills Grid */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  padding-top: 2rem;
+  /* The grid itself doesn't need an opacity transition here,
+     as individual cards will animate in. */
+}
+
+/* Skill Card Styling */
+.skill-card {
+  background-color: var(--background-color);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  opacity: 0; /* Hidden by default for animation */
+  /* Initial transform will be set by specific slide-in classes */
+}
+
+.skill-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.skill-card-level {
+  font-size: 0.875rem;
+  color: var(--muted-text-color);
+}
+
+/* Keyframe animations for sliding */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px); /* Start from left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px); /* Start from right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation classes */
+.skill-card.slide-in-left.animate-in {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.skill-card.slide-in-right.animate-in {
+  animation: slideInRight 0.6s ease-out forwards;
 }

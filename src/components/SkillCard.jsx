@@ -1,13 +1,24 @@
-import "./SkillCard.css"
+/**
+ * @typedef {object} SkillCardProps
+ * @property {string} title
+ * @property {string} level
+ * @property {string} [className] - Optional class names for styling.
+ * @property {React.CSSProperties} [style] - Optional inline styles for animation delay.
+ */
 
-function SkillCard({ title, level, logo }) {
+/**
+ * SkillCard component displays a skill title and its level.
+ * @param {SkillCardProps} props
+ */
+export default function SkillCard({ title, level, className, style }) {
   return (
-    <div className="skill-card">
-      <h3 className="skill-title">{title}</h3>
-      <h3 className="skill-title">{logo}</h3>
-      <p className="skill-level">{level}</p>
+    <div className={`skill-card ${className || ""}`} style={style}>
+      <div className="skill-card-header">
+        <h3 className="skill-card-title">{title}</h3>
+      </div>
+      <div className="skill-card-content">
+        <p className="skill-card-level">{level}</p>
+      </div>
     </div>
   )
 }
-
-export default SkillCard

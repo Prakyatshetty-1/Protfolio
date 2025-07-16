@@ -1,87 +1,157 @@
-/* About Section */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+/* Header */
+:root {
+  --background-color5: #ffffff;
+  --text-color5: #333;
+  --primary-color5: #0070f3; /* This will be overridden by the orange in About5.css for specific elements */
+  --secondary_color5: #666;
+  --card-background5: white;
+  --shadow-color5: rgba(0, 0, 0, 0.1);
+  --footer-background5: #333;
+  --footer-text5: white;
+  --button-color5: #ffffff;
+  --muted-text-color5: #666; /* Added for consistency with About5.css usage */
 }
 
-.about-text p {
+/* Dark Theme */
+[data-theme="dark"] {
+  --background-color5: #121212;
+  --text-color5: #e0e0e0;
+  --primary-color5: rgb(255, 166, 0); /* This will be used for the orange underlines */
+  --secondary_color5: #a0a0a0;
+  --card-background5: #1e1e1e;
+  --shadow-color5: rgba(255, 255, 255, 0.1);
+  --footer-background5: #000000;
+  --footer-text5: white;
+  --button-color5: #121212;
+  --muted-text-color5: #a0a0a0;
+}
+
+body {
+  background-color: var(--background-color5);
+  color: var(--text-color5);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* About Section - Specific Styling to match image consistently */
+.section5 {
+  padding: 0; /* Remove all padding from .section5 itself */
+  text-align: center;
+  background-color: #121212; /* Always dark background as per image */
+  color: #e0e0e0; /* Always light text for contrast */
+}
+
+#about {
+  padding-top: 1.5rem; /* Top padding for the section content */
+  padding-bottom: 3rem; /* Bottom padding for the section content */
+  scroll-margin-top: 80px; /* For fixed navbar */
+}
+
+.section-title5 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 0; /* Ensure no extra margin pushes it down */
+  margin-bottom: 2rem;
+  color: #e0e0e0; /* Explicitly light for dark background */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-title5.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-content5 {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile */
+  gap: 30px;
+  text-align: left; /* Align text within columns */
+}
+
+.about-text5 p {
   margin-bottom: 15px;
+  line-height: 1.6;
+  color: #e0e0e0; /* Explicitly light for dark background */
 }
 
-.about-details {
+.about-details5 {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-.section-title {
-  font-size: 2rem; /* default h2 size in most browsers */
-  font-weight: 600; /* typical h2 weight */
-  line-height: 1.2; /* for proper spacing */
-}
 
-.education h3,
-.experience h3 {
+.education5 h3,
+.experience5 h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid rgb(255, 166, 0); /* Orange underline */
   padding-bottom: 5px;
   display: inline-block;
+  color: #e0e0e0; /* Explicitly light for dark background */
 }
 
-.timeline-item {
+.timeline-item5 {
   margin-bottom: 20px;
   padding-left: 15px;
-  border-left: 2px solid #ddd;
+  border-left: 2px solid #a0a0a0; /* Vertical line, using a muted light color */
 }
 
-.timeline-item h4 {
+.timeline-item5 h4 {
   font-size: 1.1rem;
   margin-bottom: 5px;
+  color: #e0e0e0; /* Explicitly light for dark background */
 }
 
-.timeline-item p {
-  color: var(--secondary-color);
+.timeline-item5 p {
+  color: #a0a0a0; /* Explicitly muted light for dark background */
   font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 /* Media Queries */
 @media (min-width: 768px) {
-  .about-content {
-    flex-direction: row;
+  .about-content5 {
+    flex-direction: row; /* Two columns for larger screens */
+    justify-content: space-between; /* Distribute space */
+    gap: 60px; /* Increased gap between columns */
   }
 
-  .about-text {
+  .about-text5 {
     flex: 1;
+    max-width: 50%; /* Control width of text column */
   }
 
-  .about-details {
+  .about-details5 {
     flex: 1;
+    max-width: 50%; /* Control width of details column */
   }
 }
 
 /* New CSS for Animations */
 
 /* Fade In Animation */
-.fade-in-section {
+.fade-in-section5 {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in-section.is-visible {
+.fade-in-section5.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Slide In From Right Animation */
-.slide-in-right {
+.slide-in-right5 {
   opacity: 0;
   transform: translateX(100px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.slide-in-right.is-visible {
+.slide-in-right5.is-visible {
   opacity: 1;
   transform: translateX(0);
 }

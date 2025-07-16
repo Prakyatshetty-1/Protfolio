@@ -1,7 +1,9 @@
+"use client"
+
 import "./Sechero.css"
-import TypingText from "../reactbits/TypingText"
-import FadeContent from "../reactbits/FadeContent"
-import p from "../images/Profile.jpeg"
+import TypingText from "../reactbits/TypingText" // Assuming this path is correct
+import FadeContent from "../reactbits/FadeContent" // Assuming this path is correct
+import p from "../images/Profile.jpeg" // Assuming this path is correct for your image
 
 function Sechero() {
   return (
@@ -10,12 +12,8 @@ function Sechero() {
         <div className="hero-content">
           <div className="hero-text">
             <h2 className="hero-title">
-              <TypingText
-                text="Hii,I am Prakyat Shetty"
-                speed={100}
-              />
+              <TypingText text="Hii,I am Prakyat Shetty" speed={100} />
             </h2>
-
 
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={1600}>
               <p className="hero-subtitle">
@@ -27,7 +25,6 @@ function Sechero() {
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={2400}>
               {/* Anything placed inside this container will be fade into view */}
               <div className="hero-buttons">
-
                 <a href="#contact" className="button primary-button">
                   Get in Touch
                 </a>
@@ -36,16 +33,13 @@ function Sechero() {
                 </a>
               </div>
             </FadeContent>
-
-
           </div>
           <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={800}>
             {/* Anything placed inside this container will be fade into view */}
             <div className="hero-image">
-              <img src={p || "/placeholder.svg"} className="profile-image" />
+              <img src={p || "/placeholder.svg"} className="profile-image" alt="Prakyat Shetty" />
             </div>
           </FadeContent>
-
         </div>
       </div>
     </section>

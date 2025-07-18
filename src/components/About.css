@@ -1,34 +1,34 @@
 /* Header */
 :root {
-  --background-color5: #ffffff;
-  --text-color5: #333;
-  --primary-color5: #0070f3; /* This will be overridden by the orange in About5.css for specific elements */
-  --secondary_color5: #666;
-  --card-background5: white;
-  --shadow-color5: rgba(0, 0, 0, 0.1);
-  --footer-background5: #333;
-  --footer-text5: white;
-  --button-color5: #ffffff;
-  --muted-text-color5: #666; /* Added for consistency with About5.css usage */
+  --background-color: #ffffff;
+  --text-color: #333;
+  --primary-color: #0070f3; /* This will be overridden by the orange in About5.css for specific elements */
+  --secondary_color: #666;
+  --card-background: white;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --footer-background: #333;
+  --footer-text: white;
+  --button-color: #ffffff;
+  --muted-text-color: #666; /* Added for consistency with About5.css usage */
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --background-color5: #121212;
-  --text-color5: #e0e0e0;
-  --primary-color5: rgb(255, 166, 0); /* This will be used for the orange underlines */
-  --secondary_color5: #a0a0a0;
-  --card-background5: #1e1e1e;
-  --shadow-color5: rgba(255, 255, 255, 0.1);
-  --footer-background5: #000000;
-  --footer-text5: white;
-  --button-color5: #121212;
-  --muted-text-color5: #a0a0a0;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: rgb(255, 166, 0); /* This will be used for the orange underlines */
+  --secondary_color: #a0a0a0;
+  --card-background: #1e1e1e;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --footer-background: #000000;
+  --footer-text: white;
+  --button-color: #121212;
+  --muted-text-color: #a0a0a0;
 }
 
 body {
-  background-color: var(--background-color5);
-  color: var(--text-color5);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
@@ -38,8 +38,8 @@ body {
 .section5 {
   padding: 0; /* Remove all padding from .section5 itself */
   text-align: center;
-  background-color: #121212; /* Always dark background as per image */
-  color: #e0e0e0; /* Always light text for contrast */
+  background-color: var(--background-color); /* Always dark background as per image */
+  color: var(--text-color); /* Always light text for contrast */
 }
 
 #about {
@@ -53,7 +53,7 @@ body {
   font-weight: bold;
   margin-top: 0; /* Ensure no extra margin pushes it down */
   margin-bottom: 2rem;
-  color: #e0e0e0; /* Explicitly light for dark background */
+  color: var(--text-color); /* Explicitly light for dark background */
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -74,7 +74,7 @@ body {
 .about-text5 p {
   margin-bottom: 15px;
   line-height: 1.6;
-  color: #e0e0e0; /* Explicitly light for dark background */
+  color: var(--text-color); /* Explicitly light for dark background */
 }
 
 .about-details5 {
@@ -87,10 +87,10 @@ body {
 .experience5 h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  border-bottom: 2px solid rgb(255, 166, 0); /* Orange underline */
+  border-bottom: 2px solid var(--primary-color); /* Orange underline */
   padding-bottom: 5px;
   display: inline-block;
-  color: #e0e0e0; /* Explicitly light for dark background */
+  color: var(--text-color); /* Explicitly light for dark background */
 }
 
 .timeline-item5 {
@@ -102,11 +102,11 @@ body {
 .timeline-item5 h4 {
   font-size: 1.1rem;
   margin-bottom: 5px;
-  color: #e0e0e0; /* Explicitly light for dark background */
+  color: var(--text-color); /* Explicitly light for dark background */
 }
 
 .timeline-item5 p {
-  color: #a0a0a0; /* Explicitly muted light for dark background */
+  color: var(--text-color); /* Explicitly muted light for dark background */
   font-size: 0.9rem;
   line-height: 1.5;
 }

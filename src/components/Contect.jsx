@@ -3,7 +3,18 @@ function Content() {
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2
+          style={{
+            fontSize: "2rem",       // camelCase property names
+            fontWeight: 700,
+            lineHeight: 1.2,
+            textAlign: "center",
+            width: "100%",
+            margin: "2rem auto"     // margin shorthand with units
+          }}
+        >
+          Get In Touch
+        </h2>
         <p className="contact-subtitle">
           Have a project in mind or want to discuss opportunities? Feel free to reach out!
         </p>
